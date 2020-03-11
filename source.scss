@@ -28,3 +28,18 @@ $cor: red;
     
     pre { font-size: 3em; }
 }
+
+$sidebar-width: 250px;
+ 
+/*.main {
+  width: calc(100% - $sidebar-width);
+}*/
+
+.main {
+    width: calc(100% - #{$sidebar-width});
+}
+
+//Vamos pensar sobre isso: 
+//calc() é uma função CSS, não uma função Sass. 
+//Isso significa que o Sass interpreta toda a 
+//expressão em uma string. 
