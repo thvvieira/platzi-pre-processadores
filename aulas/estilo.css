@@ -1,0 +1,25 @@
+.menu {
+  list-style: none;
+  background: #E7E7E7;
+  margin: 0;
+  padding: 10px 30px;
+}
+.menu_item {
+  display: inline-block;
+  margin: 0 15px;
+}
+.menu_item_ativo {
+  background: #22c64d;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+.menu_item_ativo a {
+  color: #fff !important;
+}
+.menu_item a {
+  font-family: helvetica;
+  text-decoration: none;
+  color: #1d1d1d;
+}
+
+/*# sourceMappingURL=estilo.css.map */

@@ -1,0 +1,21 @@
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+}
+
+.sidebar {
+  float: left;
+}
+[dir=rtl] .sidebar {
+  float: right;
+}
+
+.button {
+  border: 1px solid black;
+}
+.button:not([disabled]):hover {
+  border-width: 2px;
+}
+
+/*# sourceMappingURL=mixins.css.map */

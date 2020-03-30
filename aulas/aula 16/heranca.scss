@@ -1,0 +1,20 @@
+%bton{
+//.bton{
+  padding : 5px 20px;
+  border-radius: 5px;
+  text-align:center;
+  margin:20px;
+}
+
+.b1{
+  @extend %bton;
+  //@extend .bton;
+  background : #88B8D7;
+  width : 100px;
+}
+.b2{
+  //@extend %bton;
+  @extend .bton;
+  background : #B0713B;
+  width : 60px;
+}

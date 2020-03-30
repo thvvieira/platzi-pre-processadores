@@ -1,0 +1,124 @@
+//Quais são as diretivas de controle?
+
+//@if //@else //@else if
+@mixin avatar($size, $circle: false) {
+  width: $size;
+  height: $size;
+
+  @if $circle {
+    border-radius: $size / 2;
+  }
+}
+
+.square-av { @include avatar(100px, $circle: false); }
+.circle-av { @include avatar(100px, $circle: true); }
+
+//@else
+@mixin theme-colors($light-theme: true) {
+    @if $light-theme {
+      background-color: green;
+      color: green;
+    } @else {
+      background-color: green;
+      color: green;
+    }
+  }
+  
+  .banner {
+    @include theme-colors($light-theme: true);
+    body.dark & {
+      @include theme-colors($light-theme: false);
+    }
+  }
+
+ //@else if
+  @mixin triangle($size, $color, $direction) {
+    height: 0;
+    width: 0;
+  
+    border-color: transparent;
+    border-style: solid;
+    border-width: $size / 2;
+  
+    @if $direction == up {
+      border-bottom-color: $color;
+    } @else if $direction == right {
+      border-left-color: $color;
+    } @else if $direction == down {
+      border-top-color: $color;
+    } @else if $direction == left {
+      border-right-color: $color;
+    } @else {
+      @error "Unknown direction #{$direction}.";
+    }
+  }
+  
+  .next {
+    @include triangle(5px, black, right);
+  }
+
+
+
+
+//@for
+$base-color: #036;
+
+@for $i from 1 through 3 {
+  ul:nth-child(3n + #{$i}) {
+    background-color: lighten($base-color, $i * 5%);
+    //https://sass-lang.com/documentation/modules/color#lighten
+  }
+}
+//produzirá:
+  ul:nth-child(3n+1) {
+    background-color: #004080;
+  }
+  ul:nth-child(3n+2) {
+    background-color: #004d99;
+  }
+  ul:nth-child(3n+3) {
+    background-color: #0059b3;
+  }
+
+
+
+
+//@each
+$sizes: 40px, 50px, 80px;
+
+@each $size in $sizes {
+  .icon-#{$size} {
+    font-size: $size;
+    height: $size;
+    width: $size;
+  }
+}
+
+//@while
+/// Divide o  `$value` por `$ratio` até que esteja menor que `$base`.
+@function scale-below($value, $base, $ratio: 1.618) {
+    @while $value > $base {
+      $value: $value / $ratio;
+    }
+    @return $value;
+  }
+  
+  $normal-font-size: 16px;
+  sup {
+    font-size: scale-below(20px, 16px);
+  }
+
+//@function
+@function potencia($base, $exponent) {
+    $result: 1;
+    @for $_ from 1 through $exponent {
+      $result: $result * $base;
+    }
+    @return $result;
+  }
+  
+  .sidebar {
+    float: left;
+    margin-left: potencia(4, 3) * 1px;
+  }
+

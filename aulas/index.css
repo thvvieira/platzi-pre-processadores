@@ -1,0 +1,34 @@
+.item {
+  background: red;
+}
+
+#main p {
+  color: #00ff00;
+  width: 97%;
+}
+#main p .redbox {
+  background-color: #ff0000;
+  color: #000000;
+}
+
+#main {
+  width: 97%;
+}
+#main p, #main div {
+  font-size: 2em;
+}
+#main p a, #main div a {
+  font-weight: bold;
+}
+#main pre {
+  font-size: 3em;
+}
+
+/*.main {
+  width: calc(100% - $sidebar-width);
+}*/
+.main {
+  width: calc(100% - 250px);
+}
+
+/*# sourceMappingURL=index.css.map */
